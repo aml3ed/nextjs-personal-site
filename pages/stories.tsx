@@ -1,15 +1,19 @@
 import type { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
+import Link from "next/link";
 import { client } from "../data/client";
 import GetHighlighted from "../data/GetHighlighted";
 import GetStories from "../data/GetStories";
+import routes from "../helpers/routes";
 import IStory from "../types/Story";
 
 const Stories: NextPage<{ stories: [IStory] }> = ({ stories }) => {
   return (
     <div>
       {stories.map((story) => (
-        <div key={story.id}>{story.title}</div>
+        <Link key={story.id} href={routes.story(story.slug)}>
+          {story.title}
+        </Link>
       ))}
     </div>
   );
