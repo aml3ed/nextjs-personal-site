@@ -27,10 +27,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     };
   }
 
-  const data = await client.request(GetStory, {
+  const { story }: { story: IStory } = await client.request(GetStory, {
     slug
   });
-  const { story } = data as { story: IStory };
 
   // Handle event slugs which don't exist in our CMS
   if (!story) {

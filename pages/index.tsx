@@ -1,5 +1,8 @@
-import type { NextPage } from "next";
+import type { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
+import { client } from "../data/client";
+import GetStoriesByTag from "../data/GetStoriesByTag";
+import IStory from "../types/Story";
 
 const Home: NextPage = () => {
   return (
@@ -13,6 +16,40 @@ const Home: NextPage = () => {
       <div>Hello</div>
     </>
   );
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  const { stories: softwareStories }: { stories: [IStory] } =
+    await client.request(GetStoriesByTag, {
+      tags: ["software"]
+    });
+  const { stories: videoStories }: { stories: [IStory] } = await client.request(
+    GetStoriesByTag,
+    {
+      tags: ["video"]
+    }
+  );
+  const { stories: motionStories }: { stories: [IStory] } =
+    await client.request(GetStoriesByTag, {
+      tags: ["motion"]
+    });
+  const { stories: lifeStories }: { stories: [IStory] } = await client.request(
+    GetStoriesByTag,
+    {
+      tags: ["life"]
+    }
+  );
+
+  // Provide Props to the Page Component
+  return {
+    props: {
+      softwareStories,
+      videoStories,
+      motionStories,
+      lifeStories
+    },
+    revalidate: 60 * 60 // Cache response for 1 hour (60 seconds * 60 minutes)
+  };
 };
 
 export default Home;
