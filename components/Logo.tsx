@@ -6,14 +6,12 @@ import routes from "../helpers/routes";
 
 const Logo = () => {
   return (
-    <div className="inline-flex items-baseline">
-      <Link href={routes.index} passHref>
-        <a className="logo-image" />
-      </Link>
-      <Link href={routes.index} passHref>
-        <a className="leading-none header-font">REW</a>
-      </Link>
-    </div>
+    <Link href={routes.index} passHref>
+      <a className="inline-flex items-baseline not-text">
+        <div className="logo-image" />
+        <div className="leading-none header-font">REW</div>
+      </a>
+    </Link>
   );
 };
 
