@@ -1,8 +1,8 @@
-import Link from "next/link";
 import React from "react";
 import routes from "../helpers/routes";
 import Logo from "./Logo";
 import { NavLink } from "./NavLink";
+import ThemeSwitch from "./ThemeSwitch";
 
 const Topbar = () => {
   return (
@@ -36,7 +36,9 @@ const Topbar = () => {
           <NavLink href={routes.stories} passHref activeClassName="active">
             <a className="leading-none wave-border bottom">Stories</a>
           </NavLink>
-          <div>{/* <theme-switch /> */}</div>
+          <div>
+            <ThemeSwitch />
+          </div>
         </div>
       </div>
     </nav>
