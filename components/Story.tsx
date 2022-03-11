@@ -2,6 +2,7 @@ import classNames from "classnames";
 import Link from "next/link";
 import React from "react";
 import routes from "../helpers/routes";
+import { truncateString } from "../helpers/truncateString";
 import IStory from "../types/Story";
 
 const Story: React.FC<Props> = ({ story }) => {
@@ -31,7 +32,9 @@ const Story: React.FC<Props> = ({ story }) => {
               })}
             </em>
           </div>
-          <p className="text-black dark:text-white">{story.description}</p>
+          <p className="text-black dark:text-white">
+            {truncateString(story.description, 120)}
+          </p>
         </a>
       </Link>
     </div>

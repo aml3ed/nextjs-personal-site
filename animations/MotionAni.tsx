@@ -1,10 +1,10 @@
 import gsap from "gsap";
-import React, { useLayoutEffect } from "react";
+import React, { useEffect } from "react";
 import { AniComp } from "./AniComp";
 import AniLink from "./AniLink";
 
 const MotionAni: React.FC<AniComp> = ({ link }) => {
-  useLayoutEffect(animate, []);
+  useEffect(animate, []);
   return (
     <div className="relative inline-block">
       <div className="absolute -top-10 left-4">
@@ -55,10 +55,10 @@ const MotionAni: React.FC<AniComp> = ({ link }) => {
       <h2 className="leading-0.75">
         <AniLink link={link}>
           <div id="motion-title" className="inline-block mr-2">
-            motion
+            indie
           </div>
           <div id="designer-title" className="inline-block">
-            designer
+            entrepreneur
           </div>
         </AniLink>
       </h2>

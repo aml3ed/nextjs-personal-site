@@ -1,10 +1,10 @@
 import gsap from "gsap";
-import React, { useLayoutEffect } from "react";
+import React, { useEffect } from "react";
 import { AniComp } from "./AniComp";
 import AniLink from "./AniLink";
 
 const LifeAni = ({ link }: AniComp) => {
-  useLayoutEffect(animate, []);
+  useEffect(animate, []);
   return (
     <div className="relative inline-block">
       <div className="absolute -right-13 -top-11">
@@ -29,9 +29,9 @@ const LifeAni = ({ link }: AniComp) => {
           />
         </svg>
       </div>
-      <h2 className="leading-0.75">
+      <div className="leading-0.75 header-font text-5xl sm:text-6xl">
         <AniLink link={link}>charlottesville, va</AniLink>
-      </h2>
+      </div>
     </div>
   );
 };

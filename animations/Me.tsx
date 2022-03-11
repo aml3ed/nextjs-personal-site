@@ -1,9 +1,9 @@
 import gsap from "gsap";
-import React, { useLayoutEffect } from "react";
+import React, { useEffect } from "react";
 import { AniComp } from "./AniComp";
 
 const Me: React.FC<AniComp> = () => {
-  useLayoutEffect(animate, []);
+  useEffect(animate, []);
   return (
     <div className="max-w-[483px] flex-grow">
       <svg

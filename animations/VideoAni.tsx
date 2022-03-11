@@ -1,10 +1,10 @@
 import gsap from "gsap";
-import React, { useLayoutEffect } from "react";
+import React, { useEffect } from "react";
 import { AniComp } from "./AniComp";
 import AniLink from "./AniLink";
 
 const VideoAni: React.FC<AniComp> = ({ link }) => {
-  useLayoutEffect(animate, []);
+  useEffect(animate, []);
   return (
     <div className="relative">
       <div className="absolute bottom-2 left-0">
@@ -24,9 +24,9 @@ const VideoAni: React.FC<AniComp> = ({ link }) => {
           </g>
         </svg>
       </div>
-      <h2 className="leading-0.75 ml-13">
-        <AniLink link={link}>online creator</AniLink>
-      </h2>
+      <div className="leading-0.75 header-font text-5xl sm:text-6xl ml-13">
+        <AniLink link={link}>internet storyteller</AniLink>
+      </div>
     </div>
   );
 };

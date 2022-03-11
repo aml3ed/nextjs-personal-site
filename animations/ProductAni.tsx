@@ -1,17 +1,20 @@
 import gsap from "gsap";
-import React, { useLayoutEffect } from "react";
+import React, { useEffect } from "react";
 import { SplitText } from "../public/static/gsap/SplitText";
 import { AniComp } from "./AniComp";
 import AniLink from "./AniLink";
 
 const ProductAni: React.FC<AniComp> = ({ link }) => {
-  useLayoutEffect(animate, []);
+  useEffect(animate, []);
   return (
-    <h2 id="software-header" className="leading-0.75">
+    <div
+      id="software-header"
+      className="leading-0.75 header-font text-5xl sm:text-6xl"
+    >
       {"< "}
       <AniLink link={link}>product engineer</AniLink>
       {" >"}
-    </h2>
+    </div>
   );
 };
 
