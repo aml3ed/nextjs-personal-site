@@ -1,41 +1,10 @@
-import classNames from "classnames";
 import gsap from "gsap";
 import React, { useEffect } from "react";
+import { AniComp } from "./AniComp";
+import AniLink from "./AniLink";
 
-type Props = {
-  noLink?: boolean;
-};
-
-const LifeAni = ({ noLink = false }: Props) => {
-  useEffect(() => {
-    const timeline = gsap.timeline({ repeat: -1, yoyo: true });
-    const scale = 0.47;
-    timeline
-      .to("#top-mont", {
-        x: -(10 * scale),
-        ease: "power1.inOut",
-        duration: 2
-      })
-      .to(
-        "#middle-mont",
-        {
-          x: 12 * scale,
-          ease: "power1.inOut",
-          duration: 2
-        },
-        "<"
-      )
-      .to(
-        "#bottom-mont",
-        {
-          x: 41 * scale,
-          ease: "power1.inOut",
-          duration: 2
-        },
-        "<"
-      )
-      .timeScale(0.5);
-  });
+const LifeAni = ({ link }: AniComp) => {
+  useEffect(animate, []);
   return (
     <div className="relative inline-block">
       <div className="absolute -right-13 -top-11">
@@ -61,15 +30,40 @@ const LifeAni = ({ noLink = false }: Props) => {
         </svg>
       </div>
       <h2 className="leading-0.75">
-        <a
-          href={noLink ? undefined : "#life"}
-          className={classNames({ noLink: "wave-border bottom inline-block" })}
-        >
-          charlottesville, va
-        </a>
+        <AniLink link={link}>charlottesville, va</AniLink>
       </h2>
     </div>
   );
 };
+
+function animate() {
+  const timeline = gsap.timeline({ repeat: -1, yoyo: true });
+  const scale = 0.47;
+  timeline
+    .to("#top-mont", {
+      x: -(10 * scale),
+      ease: "power1.inOut",
+      duration: 2
+    })
+    .to(
+      "#middle-mont",
+      {
+        x: 12 * scale,
+        ease: "power1.inOut",
+        duration: 2
+      },
+      "<"
+    )
+    .to(
+      "#bottom-mont",
+      {
+        x: 41 * scale,
+        ease: "power1.inOut",
+        duration: 2
+      },
+      "<"
+    )
+    .timeScale(0.5);
+}
 
 export default LifeAni;

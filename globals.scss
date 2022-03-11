@@ -77,7 +77,7 @@ footer {
 }
 
 main {
-  // min-height: 100vh;
+  overflow-x: hidden;
   @apply max-w-screen-md px-4 flex-grow mx-auto;
   .top-section {
     padding-top: 98px;

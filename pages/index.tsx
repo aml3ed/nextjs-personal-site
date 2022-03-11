@@ -1,6 +1,7 @@
 import type { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import LifeAni from "../animations/LifeAni";
+import MotionAni from "../animations/MotionAni";
 import { client } from "../data/client";
 import GetStoriesByTag from "../data/GetStoriesByTag";
 import IStory from "../types/Story";
@@ -44,11 +45,11 @@ const Home: NextPage = () => {
               {/* <video-ani /> */}
               <div className="pt-2">
                 <h2 className="leading-0.75 inline-block mr-3">&</h2>
-                {/* <motion-ani /> */}
+                <MotionAni link="#motion" />
               </div>
               <div className="pt-2">
                 <h2 className="leading-0.75 inline-block mr-3">in</h2>
-                <LifeAni />
+                <LifeAni link="#life" />
               </div>
             </div>
           </div>
