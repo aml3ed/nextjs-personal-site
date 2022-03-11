@@ -223,3 +223,24 @@ input:checked ~ .dot {
     max-width: 50%;
   }
 }
+
+.shirt-color {
+  fill: #f59e0b;
+}
+#bg-fill {
+  fill: url(#gradient);
+}
+.skin-tone {
+  fill: #feead8;
+}
+.dark {
+  #bg-fill {
+    fill: url(#gradient-midnight);
+  }
+  .shirt-color {
+    fill: #93c5fd;
+  }
+  .skin-tone {
+    fill: #f5f9ff;
+  }
+}

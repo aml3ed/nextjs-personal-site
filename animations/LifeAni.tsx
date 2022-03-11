@@ -1,10 +1,10 @@
 import gsap from "gsap";
-import React, { useEffect } from "react";
+import React, { useLayoutEffect } from "react";
 import { AniComp } from "./AniComp";
 import AniLink from "./AniLink";
 
 const LifeAni = ({ link }: AniComp) => {
-  useEffect(animate, []);
+  useLayoutEffect(animate, []);
   return (
     <div className="relative inline-block">
       <div className="absolute -right-13 -top-11">

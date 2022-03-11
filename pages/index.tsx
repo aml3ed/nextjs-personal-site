@@ -1,8 +1,10 @@
 import type { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import LifeAni from "../animations/LifeAni";
+import Me from "../animations/Me";
 import MotionAni from "../animations/MotionAni";
 import ProductAni from "../animations/ProductAni";
+import VideoAni from "../animations/VideoAni";
 import { client } from "../data/client";
 import GetStoriesByTag from "../data/GetStoriesByTag";
 import IStory from "../types/Story";
@@ -26,7 +28,7 @@ const Home: NextPage = () => {
               </div>
             </div>
             <div className="flex justify-center flex-grow w-full pb-4">
-              {/* <me-apache /> */}
+              <Me />
             </div>
             <div className="flex-grow-0 flex flex-col items-center text-gray-500 pb-2">
               <div className="header-font text-sm uppercase">scroll down</div>
@@ -43,7 +45,7 @@ const Home: NextPage = () => {
             </div>
             <div className="pt-4 flex flex-col items-center space-y-14">
               <ProductAni link="#product" />
-              {/* <video-ani /> */}
+              <VideoAni link="#video" />
               <div className="pt-2">
                 <h2 className="leading-0.75 inline-block mr-3">&</h2>
                 <MotionAni link="#motion" />
