@@ -1,5 +1,6 @@
 import type { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
+import LifeAni from "../animations/LifeAni";
 import { client } from "../data/client";
 import GetStoriesByTag from "../data/GetStoriesByTag";
 import IStory from "../types/Story";
@@ -13,7 +14,46 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div>Hello</div>
+      <div>
+        <section className="h-screen top-section">
+          <div className="h-full relative flex flex-col items-center">
+            <div className="tilted-header flex-grow-0">
+              <div>
+                <h5>HEY, FRIEND 👋</h5>
+                <h2>MY NAME’S DREW</h2>
+              </div>
+            </div>
+            <div className="flex justify-center flex-grow w-full pb-4">
+              {/* <me-apache /> */}
+            </div>
+            <div className="flex-grow-0 flex flex-col items-center text-gray-500 pb-2">
+              <div className="header-font text-sm uppercase">scroll down</div>
+              <div>
+                <i className="bi bi-mouse-fill"></i>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="h-screen flex flex-col items-center justify-center">
+          <div>
+            <div className="tilted-header mb-4">
+              <h1>I{"'"}M A...</h1>
+            </div>
+            <div className="pt-4 flex flex-col items-center space-y-14">
+              {/* <software-ani /> */}
+              {/* <video-ani /> */}
+              <div className="pt-2">
+                <h2 className="leading-0.75 inline-block mr-3">&</h2>
+                {/* <motion-ani /> */}
+              </div>
+              <div className="pt-2">
+                <h2 className="leading-0.75 inline-block mr-3">in</h2>
+                <LifeAni />
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
     </>
   );
 };

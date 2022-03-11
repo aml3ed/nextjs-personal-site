@@ -114,10 +114,12 @@ p {
   }
 }
 a[href] {
+  &:not(.not-text) {
+    transition: all 0.2s;
+  }
   &:hover,
   &.active {
     &:not(.not-text) {
-      transition: all 0.2s;
       @apply text-red-600 dark:text-blue-400;
     }
     cursor: pointer;
