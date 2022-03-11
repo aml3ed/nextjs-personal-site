@@ -5,6 +5,7 @@ export default interface IStory {
   title: string;
   description: string;
   content: RichText;
+  mdx: string;
   slug: string;
   videoUrl: string;
   featuredImage: {

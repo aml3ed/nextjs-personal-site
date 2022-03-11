@@ -7,6 +7,7 @@ export default gql`
       title
       slug
       description
+      mdx
       featuredImage {
         url
       }
