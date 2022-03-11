@@ -8,7 +8,7 @@ import GetStory from "../../data/GetStory";
 import routes from "../../helpers/routes";
 import IStory from "../../types/Story";
 
-const Story: NextPage<{ story: IStory }> = ({ story }) => {
+const StoryPage: NextPage<{ story: IStory }> = ({ story }) => {
   return (
     <>
       <section className="top-section max-w-prose mx-auto">
@@ -124,4 +124,4 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   };
 };
 
-export default Story;
+export default StoryPage;
