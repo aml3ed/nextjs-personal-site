@@ -1,27 +1,13 @@
-import { useRouter } from "next/router";
-import React, { useRef } from "react";
-import { CSSTransition, SwitchTransition } from "react-transition-group";
+import React from "react";
 import Footer from "./Footer";
 import Topbar from "./Topbar";
+import Transition from "./Transition";
 
 const Layout: React.FC = ({ children }) => {
-  const router = useRouter();
-  const nodeRef = useRef(null);
-
   return (
     <>
       <Topbar />
-      <SwitchTransition mode="out-in">
-        <CSSTransition
-          key={router.pathname}
-          classNames="page"
-          timeout={400}
-          unmountOnExit
-          nodeRef={nodeRef}
-        >
-          <main>{children}</main>
-        </CSSTransition>
-      </SwitchTransition>
+      <Transition>{children}</Transition>
       <Footer />
     </>
   );
