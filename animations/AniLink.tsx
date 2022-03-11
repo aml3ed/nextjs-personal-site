@@ -6,7 +6,7 @@ const AniLink: React.FC<AniComp> = ({ link, children }) => {
   return (
     <a
       href={link || undefined}
-      className={classNames({ noLink: "wave-border bottom inline-block" })}
+      className={classNames({ ["wave-border bottom inline-block"]: link })}
     >
       {children}
     </a>

@@ -2,6 +2,7 @@ import type { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import LifeAni from "../animations/LifeAni";
 import MotionAni from "../animations/MotionAni";
+import ProductAni from "../animations/ProductAni";
 import { client } from "../data/client";
 import GetStoriesByTag from "../data/GetStoriesByTag";
 import IStory from "../types/Story";
@@ -41,7 +42,7 @@ const Home: NextPage = () => {
               <h1>I{"'"}M A...</h1>
             </div>
             <div className="pt-4 flex flex-col items-center space-y-14">
-              {/* <software-ani /> */}
+              <ProductAni link="#product" />
               {/* <video-ani /> */}
               <div className="pt-2">
                 <h2 className="leading-0.75 inline-block mr-3">&</h2>
