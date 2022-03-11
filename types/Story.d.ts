@@ -10,6 +10,7 @@ export default interface IStory {
   mdxContent: MDXRemoteSerializeResult;
   slug: string;
   videoUrl: string;
+  highlighted: boolean;
   featuredImage: {
     url: string;
   };
