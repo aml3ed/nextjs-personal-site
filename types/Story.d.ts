@@ -1,3 +1,4 @@
+import { MDXRemoteSerializeResult } from "next-mdx-remote";
 import { RichText } from "./RichText";
 
 export default interface IStory {
@@ -6,6 +7,7 @@ export default interface IStory {
   description: string;
   content: RichText;
   mdx: string;
+  mdxContent: MDXRemoteSerializeResult;
   slug: string;
   videoUrl: string;
   featuredImage: {

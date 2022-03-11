@@ -1,5 +1,6 @@
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
-import Image from "next/image";
+import { MDXRemote } from "next-mdx-remote";
+import { serialize } from "next-mdx-remote/serialize";
 import Link from "next/link";
 import { client } from "../../data/client";
 import GetStories from "../../data/GetStories";
@@ -48,8 +49,9 @@ const Story: NextPage<{ story: IStory }> = ({ story }) => {
         lg:prose-xl
         dark:prose-invert
       "
-          dangerouslySetInnerHTML={{ __html: story.content.html }}
-        ></div>
+        >
+          <MDXRemote {...story.mdxContent} />
+        </div>
         <div>
           <h5 className="header-font mb-4">Best,</h5>
           <div className="flex items-start space-x-4">
@@ -114,10 +116,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       notFound: true
     };
   }
-
+  const mdxContent = await serialize(story.mdx);
   // Provide Props to the Page Component
   return {
-    props: { story },
+    props: { story: { ...story, mdxContent } },
     revalidate: 60 * 60 // Cache response for 1 hour (60 seconds * 60 minutes)
   };
 };
