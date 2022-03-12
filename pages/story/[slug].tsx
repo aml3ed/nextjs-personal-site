@@ -1,7 +1,9 @@
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { MDXRemote } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
+import Head from "next/head";
 import Link from "next/link";
+import ShareMeta from "../../components/ShareMeta";
 import { client } from "../../data/client";
 import GetStories from "../../data/GetStories";
 import GetStory from "../../data/GetStory";
@@ -11,6 +13,12 @@ import IStory from "../../types/Story";
 const StoryPage: NextPage<{ story: IStory }> = ({ story }) => {
   return (
     <>
+      <ShareMeta
+        title={story.title}
+        description={story.description}
+        image={story.featuredImage.url}
+      />
+
       <section className="top-section max-w-prose mx-auto">
         <div className="tilted mb-8">
           <div className="space-y-1">

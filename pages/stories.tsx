@@ -1,10 +1,12 @@
 import type { GetStaticProps, NextPage } from "next";
 import { useState } from "react";
 import Story from "../components/Story";
+import ShareMeta from "../components/ShareMeta";
 import { client } from "../data/client";
 import GetHighlighted from "../data/GetHighlighted";
 import GetStories from "../data/GetStories";
 import IStory from "../types/Story";
+import Head from "next/head";
 
 const Stories: NextPage<{ stories: [IStory]; highlighted: [IStory] }> = ({
   stories,
@@ -12,19 +14,22 @@ const Stories: NextPage<{ stories: [IStory]; highlighted: [IStory] }> = ({
 }) => {
   const [searchString, setSearch] = useState("");
   return (
-    <section className="top-section">
-      <div className="tilted-header">
-        <h1 className="uppercase mb-4">Stories</h1>
-      </div>
-      <div className="mx-auto max-w-prose">
-        {highlighted.map((story) => (
-          <Story story={story} key={story.id} />
-        ))}
+    <>
+      <ShareMeta title="Stories" />
 
-        <div className="px-2 mt-4">
-          <h5 className="mb-2">ALL STORIES</h5>
-          <div
-            className="
+      <section className="top-section">
+        <div className="tilted-header">
+          <h1 className="uppercase mb-4">Stories</h1>
+        </div>
+        <div className="mx-auto max-w-prose">
+          {highlighted.map((story) => (
+            <Story story={story} key={story.id} />
+          ))}
+
+          <div className="px-2 mt-4">
+            <h5 className="mb-2">ALL STORIES</h5>
+            <div
+              className="
             border border-gray-700
             dark:border-gray-200
             rounded-lg
@@ -36,26 +41,27 @@ const Stories: NextPage<{ stories: [IStory]; highlighted: [IStory] }> = ({
             dark:focus-within:ring-indigo-300
             mb-6
           "
-          >
-            <i className="bi bi-search mr-4"></i>
-            <input
-              type="text"
-              placeholder="Search stories..."
-              className="flex-grow focus:outline-none"
-              onChange={(e) => {
-                setSearch(e.target.value);
-              }}
-            />
+            >
+              <i className="bi bi-search mr-4"></i>
+              <input
+                type="text"
+                placeholder="Search stories..."
+                className="flex-grow focus:outline-none"
+                onChange={(e) => {
+                  setSearch(e.target.value);
+                }}
+              />
+            </div>
+          </div>
+
+          <div className="flex flex-wrap items-start">
+            {filterStories(stories, searchString).map((story) => (
+              <Story story={story} key={story.id} />
+            ))}
           </div>
         </div>
-
-        <div className="flex flex-wrap items-start">
-          {filterStories(stories, searchString).map((story) => (
-            <Story story={story} key={story.id} />
-          ))}
-        </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 
