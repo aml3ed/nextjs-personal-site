@@ -15,11 +15,12 @@ const ShareMeta: React.FC<Props> = ({
 }) => {
   const router = useRouter() || {};
   const url = router.pathname || "";
+  if (title != "Drew Lytle") {
+    title.concat(" | Drew Lytle");
+  }
   return (
     <Head>
-      <title>
-        {title} {title != "Drew Lytle" && "| Drew Lytle"}
-      </title>
+      <title>{title}</title>
       <meta property="og:type" content="article" />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
