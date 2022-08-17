@@ -34,6 +34,10 @@ const ShareMeta: React.FC<Props> = ({
       <meta name="twitter:site" content="@itsjustdrewit" />
       <meta name="twitter:card" content="summary_large_image" />
       <link rel="icon" href="/favicon.ico" />
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"
+      />
     </Head>
   );
 };

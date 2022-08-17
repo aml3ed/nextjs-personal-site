@@ -1,8 +1,10 @@
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { MDXRemote } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
-import Head from "next/head";
 import Link from "next/link";
+import rehypeKatex from "rehype-katex";
+import rehypePrism from "rehype-prism-plus";
+import remarkMath from "remark-math";
 import ShareMeta from "../../components/ShareMeta";
 import { client } from "../../data/client";
 import GetStories from "../../data/GetStories";
@@ -124,7 +126,13 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       notFound: true
     };
   }
-  const mdxContent = await serialize(story.mdx);
+
+  const mdxContent = await serialize(story.mdx, {
+    mdxOptions: {
+      remarkPlugins: [remarkMath],
+      rehypePlugins: [rehypeKatex, rehypePrism]
+    }
+  });
   // Provide Props to the Page Component
   return {
     props: { story: { ...story, mdxContent } },
