@@ -32,7 +32,7 @@ const Story: React.FC<Props> = ({ story }) => {
               })}
             </em>
           </div>
-          <p className="text-black dark:text-white">
+          <p className="text-black dark:text-white leading-7">
             {truncateString(story.description, 120)}
           </p>
         </a>
